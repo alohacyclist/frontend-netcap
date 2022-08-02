@@ -1,0 +1,106 @@
+.pop-up-overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.no-pop-up-overlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: -1;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.no-pop-up-overlay > h1 {
+  margin-bottom: 2rem;
+}
+
+.pop-up-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: blueviolet;
+
+  width: 360px;
+  max-height: 600px;
+  padding: 32px;
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.search-filter,
+.sign-up input {
+  font-size: 1.2rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.selection-btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.selection-btn {
+  width: 260px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.submit-btn,
+.form-btn-large {
+  height: 2.2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 1rem 0;
+
+  cursor: pointer;
+}
+
+.selection-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+input[type="radio"] {
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.radio-selection {
+  display: flex;
+  justify-content: space-between;
+  color: "black";
+
+  width: 100%;
+  margin: 10px 0;
+}
