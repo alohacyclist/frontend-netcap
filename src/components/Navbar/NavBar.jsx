@@ -10,16 +10,19 @@ export function NavBar() {
 
   return (
     <>
-      <nav className='flex justify-between items-center h-14 bg-pink-500'>
+      <nav className='flex justify-between items-center h-14 bg-pink-500 text-sm'>
         <Link className='flex' to={"/"}>
-          <h1 className='mr-4 ml-2'>NetCap</h1>
+          <h1 className='mx-4'>NetCap</h1>
           <h2>
             <FontAwesomeIcon icon={faPersonSkiing} />
           </h2>
         </Link>
 
-        <span className='flex'>
-          <select className='mr-2 border rounded-md px-1 py-1'>
+        <span className='flex mr-4'>
+          <select 
+            className='mr-2 border rounded-md px-1' 
+            style={{width: '5.625rem'}}
+            >
             <option>Dutch</option>
             <option>English</option>
             <option>French</option>
@@ -28,7 +31,8 @@ export function NavBar() {
           </select>
 
           <button
-            className='flex px-5 py-1 border bg-sky-400 rounded-md cursor-pointer'
+            className='border bg-sky-400 rounded-md cursor-pointer text-center py-1'
+            style={{width: '5.625rem'}}
             onClick={() => setOpenLogin(!openLogin)}
           >
             Login

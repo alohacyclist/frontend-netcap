@@ -8,3 +8,5 @@ export { LocationSelection } from "./Location/LocationSelection";
 export { SignUpForm } from "./Login_SignUp/SignUpForm";
 export { SearchStart } from "./Search/SearchStart";
 export { SearchInput } from "./Search/SearchInput";
+export { ScheduleSlider } from "./Elements/ScheduleSlider";
+export { TopButtons } from "./Elements/TopButtons";

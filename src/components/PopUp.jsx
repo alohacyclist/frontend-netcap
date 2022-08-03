@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 export function PopUp({ children, close, btnTxt, headline, z }) {
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    navigate('/results', {replace: true})
   };
+
 
   return (
     <>
-      <div
-        className={`flex flex-col w-screen h-screen justify-center items-center fixed ${z}`}
-      >
+      <div className={`flex flex-col w-screen h-screen justify-center items-center fixed ${z}`}>
         <div className='w-80 flex flex-col items-center justify-center'>
           <h1 className='mb-8 text-2xl'>{headline}</h1>
           <form
