@@ -9,11 +9,15 @@ import { PopUp } from "../PopUp";
 import { ActivitySelection } from "../Activity/ActivitySelection";
 import { LocationSelection } from "../Location/LocationSelection";
 import { DateStart } from "../Date/DateStart";
+import { useNavigate } from "react-router-dom";
+import { CloseForm } from "../Buttons/CloseForm";
 
 export function SearchStart() {
   const [openActivities, setOpenActivities] = useState(false);
   const [openLocation, setOpenLocation] = useState(false);
   const [openDates, setOpenDates] = useState(false);
+  const [headline, setHeadline] = useState('Welcome');
+  const navigate = useNavigate()
 
   const [selectedActivity, setSelectedActivity] = useState("Select Activity");
   const [selectedLocation, setSelectedLocation] = useState("Select Location");
@@ -21,77 +25,123 @@ export function SearchStart() {
 
   let btnTxt = "Done";
 
-  const logActivitySelection = (selection) => {
+  const logActivitySelection = (description, selection) => {
     setSelectedActivity(selection);
+    localStorage.setItem(`${description}`, selection)
   };
 
-  const logLocationSelection = (selection) => {
+  const logLocationSelection = (description, selection) => {
     setSelectedLocation(selection);
+    localStorage.setItem(`${description}`, selection)
   };
 
-  const logDateSelection = (selection) => {
+  const logDateSelection = (description, selection) => {
     setSelectedDate(selection);
+    localStorage.setItem(`${description}`, selection)
+    
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log('submit')
+    navigate('/results')
+  }
 
   return (
     <>
-      <PopUp btnTxt={"Go"} headline={"Welcome"}>
-        <div className='flex justify-between'>
-          <button
-            onClick={() => setOpenActivities(!openActivities)}
+      <PopUp headline={headline} showBtn={true}>
+        <form>
+        <div className='flex justify-between my-3'>
+          <input
+            onClick={() => {
+              setOpenActivities(true)
+              setHeadline('')
+            }}
             className='border rounded-md bg-pink-400 text-slate-50 text-start w-full mr-4 px-1 py-1'
+            value={selectedActivity}
+            onChange={() => console.log('form change')}            
           >
-            {selectedActivity}
-          </button>
+          </input>
           <div className='flex place-items-center w-6'>
             <FontAwesomeIcon icon={faPersonSkiing} />
           </div>
         </div>
-        <div className='flex justify-between'>
-          <button
-            onClick={() => setOpenLocation(!openLocation)}
+        <div className='flex justify-between my-3'>
+          <input
+            onClick={() => {
+              setOpenLocation(true)
+              setHeadline('')
+            }}
             className='border rounded-md bg-pink-400 text-slate-50 text-start w-full mr-4 px-1 py-1'
+            value={selectedLocation}
+            onChange={() => console.log('form change')}
           >
-            {selectedLocation}
-          </button>
+          </input>
           <div className='flex place-items-center w-6'>
             <FontAwesomeIcon icon={faMapLocationDot} />
           </div>
         </div>
-        <div className='flex justify-between'>
-          <button
-            onClick={() => setOpenDates(!openDates)}
+        <div className='flex justify-between my-3'>
+          <input
+            onClick={() => {
+              setOpenDates(true)
+              setHeadline('')
+            }}
             className='border rounded-md bg-pink-400 text-slate-50 text-start w-full mr-4 px-1 py-1'
+            value={selectedDate}
+            onChange={() => console.log('form change')}
           >
-            {selectedDate}
-          </button>
+          </input>
           <div className='flex place-items-center w-6'>
             <FontAwesomeIcon icon={faCalendarDays} />
           </div>
         </div>
+
+        <button
+          className='border rounded-md bg-green-400 text-slate-50 px-1 py-1 my-3 w-full'
+          onClick={handleSubmit}
+          >
+          GO
+        </button>
+
+        </form>
       </PopUp>
 
       {openActivities && (
         <PopUp
-          close={() => setOpenActivities(!openActivities)}
-          headline={""}
+          close={() => {
+            setOpenActivities(!openActivities)
+            setHeadline('Welcome')
+          }}
+          headline={"Select Activity"}
           btnTxt={btnTxt}
+          submitBtn={false}
         >
-          <ActivitySelection onClick={logActivitySelection} />
+          <ActivitySelection logActivity={logActivitySelection} />
         </PopUp>
       )}
       {openLocation && (
         <PopUp
-          close={() => setOpenLocation(false)}
-          headline={""}
+          close={() => {
+            setOpenLocation(!openLocation)
+            setHeadline('Welcome')
+          }}
+          headline={"Search by Location"}
           btnTxt={btnTxt}
         >
-          <LocationSelection onClick={logLocationSelection} />
+          <LocationSelection logLocation={logLocationSelection} />
         </PopUp>
       )}
       {openDates && (
-        <PopUp close={() => setOpenDates(false)} headline={""} btnTxt={btnTxt}>
-          <DateStart onClick={logDateSelection} />
+        <PopUp 
+          close={() => {
+            setOpenDates(!openDates)
+            setHeadline('Welcome')
+          }}
+          headline={"Choose Date & Time"}
+          btnTxt={btnTxt}
+          >
+          <DateStart logDate={logDateSelection} />
         </PopUp>
       )}
     </>

@@ -19,7 +19,7 @@ export function SignUpForm({ close }) {
           <div key={input.id}>
             <label>{input.label}</label>
             <input
-              className='w-full'
+              className='w-full my-2 border'
               id={input.id}
               type={input.type}
               placeholder={input.placeholder}

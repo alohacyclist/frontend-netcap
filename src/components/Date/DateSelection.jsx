@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DateCalendar } from './DateCalendar';
 
-export function DateSelection({ click }) {
+export function DateSelection({ logDate }) {
   const [openCalendar, setOpenCalendar] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ export function DateSelection({ click }) {
           Choose date
         </button>
       </div>
-      {openCalendar && <DateCalendar click={click}/>}
+      {openCalendar && <DateCalendar logDate={logDate}/>}
     </div>
   )
 }

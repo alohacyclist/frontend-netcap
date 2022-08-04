@@ -1,10 +1,8 @@
 import { SearchInput } from "../Search/SearchInput";
 import { locations } from "../../forms/queryInputs";
 
-export function LocationSelection({ onClick }) {
+export function LocationSelection({ logLocation }) {
   return (
-    <div className='selection-container'>
-      <SearchInput collection={locations} click={onClick} />
-    </div>
+      <SearchInput collection={locations} logLocation={logLocation} locationBtn={true} />
   );
 }

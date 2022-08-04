@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function SearchInput({ collection, click }) {
+export function SearchInput({ collection, logLocation, logActivity, locationBtn }) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -17,37 +17,42 @@ export function SearchInput({ collection, click }) {
     inputFilter(collection);
   }, [searchInput]);
 
-  const selector = (selection) => {
-    click(selection);
-  };
-
   return (
-    <div>
-      <div>
+    <>
+      <div className="flex flex-col gap-3 justify-center">
         <input
-          className='search-filter'
+          className=""
           value={searchInput}
           placeholder='Type to search...'
           onChange={(e) => setSearchInput(e.target.value)}
         />
-
-        <button className='form-btn-large'>Use current location</button>
+        {locationBtn &&
+          <button className='w-full rounded-md bg-indigo-700 p-1'>
+            Use current location
+            </button>}
       </div>
 
       <div>
         {searchResults.map((result) => (
-          <div className='radio-selection' key={result.id}>
+          <div  
+          key={result.id}
+          className='flex my-3 justify-between'
+          >
             <label>{result.name}</label>
             <input
               id={result.id}
               type={result.type}
-              name='location'
+              name={result.category}
               value={result.name}
-              onClick={() => selector(result.name)}
+              onClick={() => {
+                result.category === 'location' ? 
+                  logLocation(result.category, result.name) :
+                  logActivity(result.category, result.name)
+              }}
             />
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

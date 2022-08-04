@@ -1,32 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { CloseForm } from "./Buttons/CloseForm";
 
-export function PopUp({ children, close, btnTxt, headline, z }) {
-  const navigate = useNavigate()
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    navigate('/results', {replace: true})
-  };
-
+export function PopUp({ children, close, btnTxt, headline, z, showBtn }) {
+  const closeForm = showBtn
 
   return (
     <>
-      <div className={`flex flex-col w-screen h-screen justify-center items-center fixed ${z}`}>
-        <div className='w-80 flex flex-col items-center justify-center'>
-          <h1 className='mb-8 text-2xl'>{headline}</h1>
-          <form
-            className='flex flex-col w-11/12 bg-yellow-200 rounded-md border p-5 gap-3'
-            onSubmit={handleSubmit}
-          >
+      <div className={`flex flex-col w-screen h-screen justify-center items-center fixed  ${z}`}>
+        
+        <h1 className='mb-8 text-2xl text-center'>{headline}</h1>
+
+          <div className='flex flex-col w-80 rounded-md p-4 bg-yellow-300'>
+        
             {children}
-            <button
-              className='border rounded-md bg-green-400 text-slate-50 px-1 py-1'
-              onClick={close}
-            >
-              {btnTxt}
-            </button>
-          </form>
-        </div>
+
+          {!closeForm && <CloseForm close={close} btnTxt={btnTxt} />}
+              
+          </div>
       </div>
     </>
   );
