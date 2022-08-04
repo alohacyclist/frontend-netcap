@@ -10,7 +10,7 @@ export function Results() {
         topCenterButtonText={'Instructors'}
         topRightButtonText={'Filter'}
         />
-        <ScheduleSlider dateSelected={new Date().toLocaleDateString()}/>
+        <ScheduleSlider />
     </div>
   )
 }
