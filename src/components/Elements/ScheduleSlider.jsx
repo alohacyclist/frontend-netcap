@@ -10,7 +10,7 @@ export function ScheduleSlider() {
     <span className="flex justify-center items-center">
 
       <button 
-        className="border rounded-full p-2 bg-violet-400"
+        className="border rounded-full w-12 py-1 mx-3 bg-violet-400"
         onClick={(e) => {
           e.preventDefault()
           setDisplayDate(startDate.setDate(startDate.getDate() - 1))
@@ -20,7 +20,7 @@ export function ScheduleSlider() {
       </button>
         {typeof(displayDate) === 'number' ? new Date(displayDate).toLocaleDateString() : displayDate}
       <button 
-        className="border rounded-full p-2 bg-violet-400"
+        className="border rounded-full w-12 py-1 mx-3 bg-violet-400"
         onClick={(e) => {
           e.preventDefault()
           setDisplayDate(startDate.setDate(startDate.getDate() + 1))

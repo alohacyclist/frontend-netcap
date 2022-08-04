@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NotFound, Start, Results } from "./pages";
+import { NotFound, Start, Results, Team } from "./pages";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +13,7 @@ root.render(
         <Route path='/' element={<App />}>
           <Route index element={<Start />} />
           <Route path='/results' element={<Results />} />
+          <Route path='/team' element={<Team />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
