@@ -4,7 +4,7 @@ import { faCalendar, faPerson } from "@fortawesome/free-solid-svg-icons";
 
 export function TopButtons({topLeftButtonText, topCenterButtonText, topRightButtonText}) {
   return (
-    <span className="flex justify-between">
+    <span className="flex justify-between w-screen">
         <button className="m-4 border-2 border-lime-200 px-1 text-xs py-1 rounded-md">
             <FontAwesomeIcon icon={faCalendar} className='mr-2'/>
             {topLeftButtonText}

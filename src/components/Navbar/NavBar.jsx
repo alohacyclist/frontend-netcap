@@ -10,7 +10,7 @@ export function NavBar() {
 
   return (
     <>
-      <nav className='flex justify-between items-center h-14 bg-pink-500 text-sm'>
+      <nav className='flex  w-auto justify-between items-center h-14 bg-pink-500 text-sm'>
         <Link className='flex' to={"/"}>
           <h1 className='mx-4'>NetCap</h1>
           <h2>

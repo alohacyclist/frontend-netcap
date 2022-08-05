@@ -7,7 +7,7 @@ export function ScheduleSlider() {
   const [displayDate, setDisplayDate] = useState(()=> typeof(startDate) === 'object' ? startDate.toLocaleDateString() : startDate )
 
   return (
-    <span className="flex justify-center items-center">
+    <span className="flex justify-center items-center w-screen">
 
       <button 
         className="border rounded-full w-12 py-1 mx-3 bg-violet-400"
