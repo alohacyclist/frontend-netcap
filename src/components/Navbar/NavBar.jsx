@@ -10,7 +10,7 @@ export function NavBar() {
 
   return (
     <>
-      <nav className='flex  w-auto justify-between items-center h-14 bg-pink-500 text-sm'>
+      <nav className='flex w-full justify-between items-center h-14 bg-pink-500 text-sm'>
         <Link className='flex' to={"/"}>
           <h1 className='mx-4'>NetCap</h1>
           <h2>
@@ -18,7 +18,7 @@ export function NavBar() {
           </h2>
         </Link>
 
-        <span className='flex mr-4'>
+        <div className='flex mr-4'>
           <select 
             className='mr-2 border rounded-md px-1' 
             style={{width: '5.625rem'}}
@@ -37,7 +37,7 @@ export function NavBar() {
           >
             Login
           </button>
-        </span>
+        </div>
       </nav>
 
       {openLogin && <SignUpForm close={() => setOpenLogin(!openLogin)} />}

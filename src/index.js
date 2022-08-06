@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NotFound, Start, Results, Team } from "./pages";
+import { NotFound, Start, Results, Team, Reviews } from "./pages";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +14,10 @@ root.render(
           <Route index element={<Start />} />
           <Route path='/results' element={<Results />} />
           <Route path='/team' element={<Team />} />
+          
+          {/* REMOVE 42 */}
+          <Route path=':instrucor-reviews/42' element={<Reviews />} />
+
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>

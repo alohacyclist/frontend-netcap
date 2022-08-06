@@ -10,7 +10,6 @@ import { ActivitySelection } from "../Activity/ActivitySelection";
 import { LocationSelection } from "../Location/LocationSelection";
 import { DateStart } from "../Date/DateStart";
 import { useNavigate } from "react-router-dom";
-import { CloseForm } from "../Buttons/CloseForm";
 
 export function SearchStart() {
   const [openActivities, setOpenActivities] = useState(false);
@@ -43,7 +42,7 @@ export function SearchStart() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('submit')
+    console.log('submit and send filtered request to Results Page and Component')
     navigate('/results')
   }
 
