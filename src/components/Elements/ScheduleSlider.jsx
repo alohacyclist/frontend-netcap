@@ -11,6 +11,7 @@ export function ScheduleSlider() {
 
       <button 
         className="border rounded-full w-12 py-1 mx-3 bg-violet-400"
+        disabled={displayDate <= Date.parse(new Date())}
         onClick={(e) => {
           e.preventDefault()
           setDisplayDate(startDate.setDate(startDate.getDate() - 1))
@@ -19,7 +20,7 @@ export function ScheduleSlider() {
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
         {typeof(displayDate) === 'number' ? new Date(displayDate).toLocaleDateString() : displayDate}
-      <button 
+      <button
         className="border rounded-full w-12 py-1 mx-3 bg-violet-400"
         onClick={(e) => {
           e.preventDefault()
