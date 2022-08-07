@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { ScheduleSlider } from "../components/Elements/ScheduleSlider";
 import { TopButtons } from "../components/Elements/TopButtons";
+import { Filter } from "../components/Filter/Filter";
 import { ResultContainer } from "../components/Results/ResultContainer";
 
 export function Results() {
   const [resultType, setResultType] = useState('')
+  const [openFilter, setOpenFilter] = useState(false)
 
   const switchInstructorsAndSchedule = (value) => {
     return setResultType(value)
@@ -17,13 +19,21 @@ export function Results() {
         topCenterButtonText={'Instructors'}
         topRightButtonText={'Filter'}
 
+        setOpenFilter={setOpenFilter}
+        openFilter={openFilter}
         switchResults={switchInstructorsAndSchedule}
+
         />
         <ScheduleSlider />
 
-        <ResultContainer type={resultType}/>
-        <ResultContainer type={resultType}/>
-        <ResultContainer type={resultType}/>
+        {openFilter ? 
+          <Filter setOpenFilter={setOpenFilter} openFilter={openFilter}/> :
+          <>
+            <ResultContainer type={resultType}/>
+            <ResultContainer type={resultType}/>
+            <ResultContainer type={resultType}/>
+          </>
+        }
 
     </div>
   )
