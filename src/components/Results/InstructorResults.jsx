@@ -7,26 +7,25 @@ export function InstructorResults() {
   }
 
   return (
-    <div className="flex flex-col h-auto">
+    <div className="w-screen">
 
         <div className="flex justify-between" >
           <h4>TIME</h4><small>HERE</small>
         </div>
 
-      <div className="flex justify-between">
+      <div className="flex">
 
-        <div className="w-full flex">
+        <div className="flex-none w-[150px]">
           <img
-          className="h-auto w-auto"
           src={'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Skiguides_freeriding_in_Lech.jpg/440px-Skiguides_freeriding_in_Lech.jpg'}
           alt='skier in deep powder'
           />
         </div>
 
-        <div className="w-screen">
+        <div className="flex flex-col w-full">
 
           <div className="flex justify-between">
-            <h4 className="text-sm">Hans-Peter</h4><small>Activiy_PRICE <b>pp</b></small>
+            <h4 className="text-sm">Hans-Peter</h4><small>PRICE <b>pp</b></small>
           </div>
 
             <p
@@ -44,7 +43,9 @@ export function InstructorResults() {
             </button>
           </div>
 
+          <div className="flex flex-initial w-[200px] mt-2">
           <TagSlider />
+          </div>
 
         </div>
 
