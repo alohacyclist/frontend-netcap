@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { TagSlider } from "../Elements/TagSlider";
 
-export function ActivityResults() {
+export function ActivityResults({showDetailsOrBookBtn}) {
+  const navigate = useNavigate()
 
   return (
     <div className="w-screen">
@@ -36,8 +38,15 @@ export function ActivityResults() {
               <small className="text-[10px]">LOCATION</small>
               <small className="text-[10px]">OPEN_SPACES</small>
             </div>
-            <button className="p-1 bg-blue-400 rounded-full w-16 text-xs">
-              Details
+
+            <button
+            onClick={() => {
+              showDetailsOrBookBtn === 'Details' ? 
+                navigate('/details') :
+                navigate('/booking')
+            }}
+            className="p-1 bg-blue-400 rounded-full w-16 text-xs">
+              {showDetailsOrBookBtn}
             </button>
           </div>
 

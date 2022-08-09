@@ -7,7 +7,7 @@ export function ResultContainer({ type }) {
     <>
       {type === 'Instructors' ?
         <InstructorResults /> :
-        <ActivityResults />
+        <ActivityResults showDetailsOrBookBtn={'Details'}/>
     }
     </>
   )
