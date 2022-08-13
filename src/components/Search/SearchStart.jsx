@@ -42,8 +42,7 @@ export function SearchStart() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('submit and send filtered request to Results Page and Component')
-    navigate('/results')
+    navigate('/results', {state: {selectedActivity, selectedDate, selectedLocation}})
   }
 
   return (

@@ -27,7 +27,9 @@ export function SearchInput({ collection, logLocation, logActivity, locationBtn 
           onChange={(e) => setSearchInput(e.target.value)}
         />
         {locationBtn &&
-          <button className='w-full rounded-md bg-indigo-700 p-1'>
+          <button 
+          className='w-full rounded-md bg-indigo-700 p-1'
+          >
             Use current location
             </button>}
       </div>
